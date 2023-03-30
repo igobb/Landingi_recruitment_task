@@ -19,8 +19,13 @@ export interface Cart {
 }
 
 export interface ApiResponse {
-    carts: Cart[];
-    total: number;
-    skip: number;
-    limit: number;
+  carts: Cart[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
+export interface AddCartInterface {
+  userId: number;
+  products: [{ id: number; quantity: number }];
 }
