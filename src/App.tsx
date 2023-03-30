@@ -1,15 +1,16 @@
-import { addCart } from "./apiServices/cartService/addCart";
+import { Suspense } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import AllCartsPage from "./pages/AllCartsPage/AllCartsPage";
 import Routes from "./routes/Routes";
 
 function App() {
-
   return (
     <div className="App">
       <Header />
-      <Routes />
+      <Suspense fallback={<div>Loading...</div>}>
+        {/* dodać komponent ładowania */}
+        <Routes />
+      </Suspense>
     </div>
   );
 }

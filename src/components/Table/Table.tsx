@@ -12,7 +12,7 @@ const Table = ({ carts }: { carts: Cart[] }) => {
       <tbody>
         {carts.map((cart: Cart) => {
           return (
-            <tr>
+            <tr key={cart.id}>
               <th>
                 {cart.id} of User {cart.userId}
               </th>

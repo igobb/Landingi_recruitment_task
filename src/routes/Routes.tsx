@@ -5,10 +5,13 @@ const AllCartsPage = React.lazy(
   () => import("../pages/AllCartsPage/AllCartsPage")
 );
 
+const AddCartPage = React.lazy(() => import("../pages/AddCartPage/AddCartPage"));
+
 const Routes = () => {
   return useRoutes([
     // { path: "*", element: <ErrorPage/>}
     { path: "/", element: <AllCartsPage /> },
+    { path: "/addCart", element: <AddCartPage /> },
   ]);
 };
 
