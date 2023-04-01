@@ -7,6 +7,7 @@ const AllCartsPage = React.lazy(
 
 const AddCartPage = React.lazy(() => import("../pages/AddCartPage/AddCartPage"));
 const DeleteCartPage = React.lazy(() => import("../pages/DeleteCartPage/DeleteCartPage"));
+const CartPage = React.lazy(() => import("../pages/CartPage/CartPage"));
 
 const Routes = () => {
   return useRoutes([
@@ -14,7 +15,7 @@ const Routes = () => {
     { path: "/", element: <AllCartsPage /> },
     { path: "/addCart", element: <AddCartPage /> },
     { path: "/deleteCart", element: <DeleteCartPage /> },
-
+    { path: "/cart/:id", element: <CartPage /> },
   ]);
 };
 
