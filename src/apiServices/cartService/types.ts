@@ -1,12 +1,4 @@
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  quantity: number;
-  total: number;
-  discountPercentage: number;
-  discountedPrice: number;
-}
+import { Product } from "../productService/types";
 
 export interface Cart {
   id: number;
@@ -27,5 +19,6 @@ export interface ApiResponse {
 
 export interface AddCartInterface {
   userId: number;
-  products: [{ id: number; quantity: number }];
+  productId: number;
+  productQuantity: number;
 }
