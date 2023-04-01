@@ -14,9 +14,17 @@ const CartPage = () => {
   }, []);
   console.log(products);
   return (
-    <div className="cart-page__container">
-      <h1>In cart number {id} there are products: </h1>
-    </div>
+    <>
+      {products && (
+        <div className="cart-page__container">
+          <h1>In cart number {id} there are products: </h1>
+          
+          {/* {products.map((product: Product) => {
+            return <p>{product.title}</p>;
+          })} */}
+        </div>
+      )}
+    </>
   );
 };
 
