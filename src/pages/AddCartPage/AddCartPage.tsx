@@ -36,18 +36,16 @@ const AddCartPage = () => {
       productQuantity: 0,
     },
     onSubmit: (values: AddCartInterface) => {
-      const createdCart = addCart(values);
-      alert("All ok, Cart was added!");
-      console.log(createdCart);
+      addCart(values).then(() => alert("All ok, Cart was added!"));
     },
     validationSchema: addCartSchema,
   });
-  console.log(formik.values)
 
   return (
     <>
       {products && users && (
         <div className="add-cart-page__container">
+          <h1 className="page__title">Add a cart:</h1>
           <form onSubmit={formik.handleSubmit} className="add-cart-page__form">
             <SelectUserInput formik={formik} users={users} />
             <SelectProductInput formik={formik} products={products} />

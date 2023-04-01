@@ -22,3 +22,7 @@ export interface AddCartInterface {
   productId: number;
   productQuantity: number;
 }
+
+export interface DeleteCartInterface {
+  cartId: number;
+}

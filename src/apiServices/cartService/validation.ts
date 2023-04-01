@@ -6,4 +6,3 @@ export const addCartSchema = yup.object({
   productQuantity: yup.number().required("You must select value").test("Is positive?", "Quantity must be greater than 0!", (value) => value > 0),
 });
 
-// export type FormValues = yup.InferType<typeof addCartSchema> & { id?: string };
