@@ -6,22 +6,22 @@ import {
   Select,
 } from "@mui/material";
 import { Product } from "../../apiServices/productService/types";
+import { FormikProps } from "formik";
+import { AddCart } from "../../apiServices/cartService/types";
 
 const SelectProductInput = ({
   formik,
   products,
 }: {
-  formik: any;
+  formik: FormikProps<AddCart>;
   products: Product[];
 }) => {
   return (
     <FormControl>
-      <InputLabel id="demo-simple-select-disabled-label">
-        Select a product
-      </InputLabel>
+      <InputLabel id="id-select-product">Select a product</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+        labelId="id-select-product"
+        id="id-select-product"
         name="productId"
         value={formik.values.productId}
         label="Products"

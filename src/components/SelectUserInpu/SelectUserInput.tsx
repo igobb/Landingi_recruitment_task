@@ -6,16 +6,16 @@ import {
   Select,
 } from "@mui/material";
 import { User } from "../../apiServices/userService/types";
+import { FormikProps } from "formik";
+import { AddCart } from "../../apiServices/cartService/types";
 
-const SelectUserInput = ({ formik, users }: { formik: any; users: User[] }) => {
+const SelectUserInput = ({ formik, users }: { formik: FormikProps<AddCart>; users: User[] }) => {
   return (
     <FormControl>
-      <InputLabel id="demo-simple-select-disabled-label">
-        Select a user
-      </InputLabel>
+      <InputLabel id="id-select-user">Select a user</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+        labelId="id-select-user"
+        id="id-select-user"
         name="userId"
         value={formik.values.userId}
         label="Users"

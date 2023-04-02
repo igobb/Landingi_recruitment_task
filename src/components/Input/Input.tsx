@@ -1,21 +1,31 @@
 import { TextField } from "@mui/material";
+import { FormikProps } from "formik/dist/types";
 
-const Input = ({ formik, label, name, inputType } : {formik:any, label:string, name:string, inputType: string,}) => {
-
+function Input<T>({
+  formik,
+  label,
+  name,
+  inputType,
+}: {
+  formik: FormikProps<T>;
+  label: string;
+  name: keyof T;
+  inputType: string;
+}) {
   return (
     <TextField
-    inputProps={{ type: {inputType} }}
+      inputProps={{ type: { inputType } }}
       error={Boolean(formik.touched[name] && formik.errors[name])}
       helperText={
-        formik.touched[name] && formik.errors[name] ? formik.errors[name] : null
+        formik.touched[name] && formik.errors[name] ? formik.errors[name] as string : null
       }
       label={label}
-      name={name}
+      name={name as string}
       onChange={formik.handleChange}
       onBlur={formik.handleBlur}
       value={formik.values[name]}
       margin="dense"
-      sx={{backgroundColor: 'primary'}}
+      sx={{ backgroundColor: "primary" }}
     />
   );
 };

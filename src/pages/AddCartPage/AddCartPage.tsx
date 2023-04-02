@@ -43,8 +43,6 @@ const AddCartPage = () => {
     validationSchema: addCartSchema,
   });
 
-  
-
   return (
     <>
       {products && users && (
@@ -53,7 +51,7 @@ const AddCartPage = () => {
           <form onSubmit={formik.handleSubmit} className="add-cart-page__form">
             <SelectUserInput formik={formik} users={users} />
             <SelectProductInput formik={formik} products={products} />
-            <Input
+            <Input<AddCart>
               formik={formik}
               inputType="number"
               label="Quantity"
