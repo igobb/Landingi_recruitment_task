@@ -1,8 +1,8 @@
-import { AddCartInterface } from "./types";
+import { AddCart } from "./types";
 import { notify } from "../notify";
 import { BASE_URL } from "../apiURL";
 
-export const addCart = async (cartData:AddCartInterface) => {
+export const addCart = async (cartData:AddCart) => {
   const response = await fetch(`${BASE_URL}/carts/add`, {
     method: "POST",
     headers: { "Content-type": "application/json" },

@@ -17,13 +17,13 @@ export interface ApiResponse {
   limit: number;
 }
 
-export interface AddCartInterface {
+export interface AddCart {
   userId: number;
   productId: number;
   productQuantity: number;
 }
 
-export interface DeleteCartInterface {
+export interface DeleteCart {
   cartId: number;
 }
 

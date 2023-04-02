@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { addCart } from "../../apiServices/cartService/addCart";
 import "./AddCartPage.scss";
 import { addCartSchema } from "../../apiServices/cartService/validation";
-import { AddCartInterface } from "../../apiServices/cartService/types";
+import { AddCart } from "../../apiServices/cartService/types";
 import { getAllProducts } from "../../apiServices/productService/getAllProducts";
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../../apiServices/userService/getAllUsers";
@@ -30,13 +30,13 @@ const AddCartPage = () => {
     toast.success("Cart was added! All ok!");
   };
 
-  const formik = useFormik<AddCartInterface>({
+  const formik = useFormik<AddCart>({
     initialValues: {
       userId: 1,
       productId: 1,
       productQuantity: 0,
     },
-    onSubmit: (values: AddCartInterface) => {
+    onSubmit: (values: AddCart) => {
       addCart(values);
       notify();
     },

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./DeleteCartPage.scss";
 import { getAllCarts } from "../../apiServices/cartService/getAllCarts";
-import { Cart, DeleteCartInterface, DeletedCart } from "../../apiServices/cartService/types";
+import { Cart, DeleteCart, DeletedCart } from "../../apiServices/cartService/types";
 import SelectCartInput from "../../components/SelectCartInput/SelectCartInput";
 import { useFormik } from "formik";
 import { deleteCart } from "../../apiServices/cartService/deleteCart";
@@ -22,11 +22,11 @@ const DeleteCartPage = () => {
     toast.success(`Cart was deleted on ${data.deletedOn.slice(0,10)}. \n All ok!`);
   };
 
-  const formik = useFormik<DeleteCartInterface>({
+  const formik = useFormik<DeleteCart>({
     initialValues: {
       cartId: 1,
     },
-    onSubmit: (values: DeleteCartInterface) => {
+    onSubmit: (values: DeleteCart) => {
       deleteCart(values.cartId).then((data) => {
         notify(data)
       });
