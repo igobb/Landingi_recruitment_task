@@ -13,7 +13,6 @@ const DeleteCartPage = () => {
     getAllCarts().then((data) => setCarts(data));
   }, []);
 
-  console.log(carts);
   const formik = useFormik<DeleteCartInterface>({
     initialValues: {
       cartId: 1,

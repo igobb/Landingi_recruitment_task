@@ -16,7 +16,7 @@ const TableForProducts = ({products} : {products:Product[]}) => {
             <tr key={product.id}>
               <th>{product.title}</th>
               <th style={{ color: "var(--red)" }}>{product.price}</th>
-              <th style={{ color: "var(--green)" }}>
+              <th style={{ color: "var(--blue)" }}>
                 {String(product.discountedPrice / product.quantity).slice(0, 5)}
               </th>
             </tr>

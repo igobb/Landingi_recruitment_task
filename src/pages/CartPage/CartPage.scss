@@ -1,46 +1,54 @@
 .cart-page__container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: calc(100vh - 100px);
   justify-content: flex-start;
-  gap: 10%;
   align-items: center;
   padding: 2rem 3rem;
 
-  .chart {
-    width: 45%;
-  }
+  .cart-page__data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+    height: 100%;
+    
+    .chart {
+      width: 55%;
+    }
 
-  .table__container {
-    width: 45%;
-    margin-top: 2rem;
-    box-shadow: 2px 2px 20px -2px var(--shadow-color);
-    border-radius: 5px;
+    .table__container {
+      width: 40%;
+      margin-top: 2rem;
+      box-shadow: 2px 2px 20px -2px var(--shadow-color);
+      border-radius: 5px;
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      empty-cells: hide;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        empty-cells: hide;
 
-      thead {
-        font-size: 1.6rem;
-        
-        th {
-            padding: 1rem 0;
-        }
-      }
-
-      tbody {
-        font-size: 1.3rem;
-
-        tr {
-
-          &:nth-child(odd) {
-            background-color: rgb(220, 220, 220);
-          }
+        thead {
+          font-size: 1.3rem;
 
           th {
-            padding: 1rem;
+            padding: 1rem 0;
+          }
+        }
+
+        tbody {
+          font-size: 1.1rem;
+
+          tr {
+            &:nth-child(odd) {
+              background-color: rgb(220, 220, 220);
+            }
+
+            th {
+              padding: 1rem;
+            }
           }
         }
       }

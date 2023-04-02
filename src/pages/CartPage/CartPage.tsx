@@ -45,14 +45,17 @@ const CartPage = () => {
       });
     }
   }, [products]);
-  console.log(products);
+
   return (
     <>
       {products && chartData && (
         <div className="cart-page__container">
-          <LineChart chartData={chartData} />
-          <div className="table__container">
-            <TableForProducts products={products} />
+          <h1>Cart #{id}</h1>
+          <div className="cart-page__data">
+            <LineChart chartData={chartData} />
+            <div className="table__container">
+              <TableForProducts products={products} />
+            </div>
           </div>
         </div>
       )}

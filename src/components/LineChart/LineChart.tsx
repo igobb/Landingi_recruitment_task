@@ -28,7 +28,7 @@ const options = {
       },
       title: {
         display: true,
-        text: 'Price',
+        text: 'Price of products',
       }
 
     },
