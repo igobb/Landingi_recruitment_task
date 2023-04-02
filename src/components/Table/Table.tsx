@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Cart } from "../../apiServices/cartService/types";
 
 const Table = ({ carts }: { carts: Cart[] }) => {
+  const navigate = useNavigate();
+
   return (
     <table>
       <thead>
@@ -13,11 +15,9 @@ const Table = ({ carts }: { carts: Cart[] }) => {
       <tbody>
         {carts.map((cart: Cart) => {
           return (
-            <tr key={cart.id}>
+            <tr key={cart.id} onClick={() => navigate(`/cart/${cart.id}`)}>
               <th>
-                <Link to={`/cart/${cart.id}`}>
-                  {cart.id} of User {cart.userId}
-                </Link>
+                {cart.id} of User {cart.userId}
               </th>
               <th>{cart.total}</th>
             </tr>

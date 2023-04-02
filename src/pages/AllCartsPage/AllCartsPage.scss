@@ -15,7 +15,7 @@
     width: 50%;
     max-height: 520px;
     margin-top: 2rem;
-    overflow: scroll;
+    overflow-y: scroll;
     box-shadow: 2px 2px 20px -2px var(--shadow-color);
     border-radius: 5px;
 
@@ -43,7 +43,12 @@
         tr {
 
           &:nth-child(odd) {
-            background-color: rgb(220, 220, 220);
+            background-color: var(--shadow-color);
+          }
+
+          &:hover {
+            background-color: var(--dark-shadow-color);
+            cursor: pointer;
           }
 
           th {
