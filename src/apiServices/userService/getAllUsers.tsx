@@ -1,7 +1,8 @@
+import { BASE_URL } from "../apiURL";
 import { User } from "./types";
 
 export const getAllUsers = async () => {
-  const response = await fetch("https://dummyjson.com/users?limit=0");
+  const response = await fetch(`${BASE_URL}/users?limit=0`);
   if (!response.ok) {
     throw new Error("Something went wrong");
   }

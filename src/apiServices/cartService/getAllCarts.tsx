@@ -1,7 +1,8 @@
+import { BASE_URL } from "../apiURL";
 import { Cart } from "./types";
 
 export const getAllCarts = async () => {
-  const response = await fetch("https://dummyjson.com/carts");
+  const response = await fetch(`${BASE_URL}/carts`);
   if (!response.ok) {
     throw new Error("Something went wrong");
   }

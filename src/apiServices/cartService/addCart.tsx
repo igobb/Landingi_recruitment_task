@@ -1,8 +1,9 @@
 import { AddCartInterface } from "./types";
 import { notify } from "../notify";
+import { BASE_URL } from "../apiURL";
 
 export const addCart = async (cartData:AddCartInterface) => {
-  const response = await fetch('https://dummyjson.com/carts/add', {
+  const response = await fetch(`${BASE_URL}/carts/add`, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
