@@ -11,6 +11,8 @@
   --text-color: rgba(18, 18, 18, 0.87);
   --background-color: #f5f5f5;
   --shadow-color: #c5c5c5;
+  --green: #5D9C59;
+  --red: #DF2E38;
 }
 
 * {

@@ -1,0 +1,50 @@
+.cart-page__container {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  justify-content: flex-start;
+  gap: 10%;
+  align-items: center;
+  padding: 2rem 3rem;
+
+  .chart {
+    width: 45%;
+  }
+
+  .table__container {
+    width: 45%;
+    margin-top: 2rem;
+    overflow: scroll;
+    box-shadow: 2px 2px 20px -2px var(--shadow-color);
+    border-radius: 5px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      empty-cells: hide;
+
+      thead {
+        font-size: 1.6rem;
+        
+        th {
+            padding: 1rem 0;
+        }
+      }
+
+      tbody {
+        font-size: 1.3rem;
+
+        tr {
+
+          &:nth-child(odd) {
+            background-color: rgb(220, 220, 220);
+          }
+
+          th {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
