@@ -11,6 +11,8 @@ import { Product } from "../../apiServices/productService/types";
 import Input from "../../components/Input/Input";
 import SelectUserInput from "../../components/SelectUserInpu/SelectUserInput";
 import SelectProductInput from "../../components/SelectProductInput/SelectProductInput";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddCartPage = () => {
   const [products, setProducts] = useState<Product[] | null>(null);
@@ -20,6 +22,13 @@ const AddCartPage = () => {
     getAllProducts().then((data) => setProducts(data));
     getAllUsers().then((data) => setUsers(data));
   }, []);
+  
+  const navigate = useNavigate();
+
+  const notify = () => {
+    navigate("/")
+    toast.success("Cart was added! All ok!");
+  };
 
   const formik = useFormik<AddCartInterface>({
     initialValues: {
@@ -28,10 +37,13 @@ const AddCartPage = () => {
       productQuantity: 0,
     },
     onSubmit: (values: AddCartInterface) => {
-      addCart(values).then(() => alert("All ok, Cart was added!"));
+      addCart(values);
+      notify();
     },
     validationSchema: addCartSchema,
   });
+
+  
 
   return (
     <>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./DeleteCartPage.scss";
 import { getAllCarts } from "../../apiServices/cartService/getAllCarts";
-import { Cart, DeleteCartInterface } from "../../apiServices/cartService/types";
+import { Cart, DeleteCartInterface, DeletedCart } from "../../apiServices/cartService/types";
 import SelectCartInput from "../../components/SelectCartInput/SelectCartInput";
 import { useFormik } from "formik";
 import { deleteCart } from "../../apiServices/cartService/deleteCart";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const DeleteCartPage = () => {
   const [carts, setCarts] = useState<Cart[] | null>(null);
@@ -13,12 +15,21 @@ const DeleteCartPage = () => {
     getAllCarts().then((data) => setCarts(data));
   }, []);
 
+  const navigate = useNavigate();
+
+  const notify = (data:DeletedCart) => {
+    navigate("/")
+    toast.success(`Cart was deleted on ${data.deletedOn.slice(0,10)}. \n All ok!`);
+  };
+
   const formik = useFormik<DeleteCartInterface>({
     initialValues: {
       cartId: 1,
     },
     onSubmit: (values: DeleteCartInterface) => {
-      deleteCart(values.cartId).then((data) => alert(`The cart was deleted on ${data.deletedOn.slice(0,11)}`));
+      deleteCart(values.cartId).then((data) => {
+        notify(data)
+      });
     },
   });
 

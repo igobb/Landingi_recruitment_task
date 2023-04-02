@@ -26,3 +26,7 @@ export interface AddCartInterface {
 export interface DeleteCartInterface {
   cartId: number;
 }
+
+export interface DeletedCart {
+  deletedOn: string;
+}
