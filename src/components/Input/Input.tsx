@@ -17,7 +17,9 @@ function Input<T>({
       inputProps={{ type: { inputType } }}
       error={Boolean(formik.touched[name] && formik.errors[name])}
       helperText={
-        formik.touched[name] && formik.errors[name] ? formik.errors[name] as string : null
+        formik.touched[name] && formik.errors[name]
+          ? (formik.errors[name] as string)
+          : null
       }
       label={label}
       name={name as string}
@@ -28,6 +30,6 @@ function Input<T>({
       sx={{ backgroundColor: "primary" }}
     />
   );
-};
+}
 
 export default Input;

@@ -11,13 +11,6 @@ const CartPage = () => {
   const { id } = useParams();
 
   const [products, setProducts] = useState<Product[] | null>(null);
-
-  const productTitles = products?.map((product) => product.title);
-  const productPrice = products?.map((product) => product.price);
-  const productDiscountedPrice = products?.map(
-    (product) => product.discountedPrice / product.quantity
-  );
-
   const [chartData, setChartData] = useState<ChartData | null>(null);
 
   useEffect(() => {
@@ -25,6 +18,12 @@ const CartPage = () => {
   }, []);
 
   useEffect(() => {
+    const productTitles = products?.map((product) => product.title);
+    const productPrice = products?.map((product) => product.price);
+    const productDiscountedPrice = products?.map(
+      (product) => product.discountedPrice / product.quantity
+    );
+
     if (productTitles && productPrice && productDiscountedPrice) {
       setChartData({
         labels: productTitles,
