@@ -25,7 +25,7 @@ This is my solution for Landingi recruitment task. This project is dashboard wit
 * API
 
 ## Setup
-To run this project <a href="">CLICK THIS LINK</a>
+To run this project <a href="https://landingi-recruitment-task.vercel.app/">CLICK THIS LINK</a>
 
 or follow these steps:
 
