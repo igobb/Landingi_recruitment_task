@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Cart } from "../../apiServices/cartService/types";
 
 const Table = ({ carts }: { carts: Cart[] }) => {

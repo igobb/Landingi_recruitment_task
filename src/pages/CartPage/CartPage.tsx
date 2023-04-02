@@ -2,27 +2,10 @@ import { useParams } from "react-router-dom";
 import "./CartPage.scss";
 import { Product } from "../../apiServices/productService/types";
 import { useEffect, useState } from "react";
-import { getCart } from "../../apiServices/cartService/getCart";
+import { getProductsFromCart } from "../../apiServices/cartService/getProductsFromCart";
 import LineChart from "../../components/LineChart/LineChart";
 import TableForProducts from "../../components/TableForProducts/TableForProducts";
-
-export interface ChartData {
-  labels: string[];
-  datasets: [
-    {
-      label: string;
-      data: number[];
-      borderColor: string;
-      backgroundColor: string;
-    },
-    {
-      label: string;
-      data: number[];
-      borderColor: string;
-      backgroundColor: string;
-    }
-  ];
-}
+import { ChartData } from "../../components/LineChart/chartData";
 
 const CartPage = () => {
   const { id } = useParams();
@@ -38,7 +21,7 @@ const CartPage = () => {
   const [chartData, setChartData] = useState<ChartData | null>(null);
 
   useEffect(() => {
-    getCart(Number(id)).then((data) => setProducts(data));
+    getProductsFromCart(Number(id)).then((data) => setProducts(data));
   }, []);
 
   useEffect(() => {

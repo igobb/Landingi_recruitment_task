@@ -4,14 +4,6 @@ import "./AddCartPage.scss";
 import { addCartSchema } from "../../apiServices/cartService/validation";
 import { AddCartInterface } from "../../apiServices/cartService/types";
 import { getAllProducts } from "../../apiServices/productService/getAllProducts";
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../../apiServices/userService/getAllUsers";
 import { User } from "../../apiServices/userService/types";

@@ -18,7 +18,7 @@ ChartJS.register(
     Legend
   );
 import { Chart as ChartJS } from "chart.js/auto";
-import { ChartData } from "../../pages/CartPage/CartPage";
+import { ChartData } from "./chartData"
 
 const options = {
     responsive: true,

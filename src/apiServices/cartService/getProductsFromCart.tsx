@@ -1,6 +1,6 @@
 import { Product } from "../productService/types";
 
-export const getCart = async (id:number) => {
+export const getProductsFromCart = async (id:number) => {
   const response = await fetch(`https://dummyjson.com/carts/${id}`);
   if (!response.ok) {
     return [];
