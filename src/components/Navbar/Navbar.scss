@@ -10,6 +10,10 @@
     .nav__link {
       margin: 0 1rem;
       list-style-type: none;
+
+      &:hover {
+        color: var(--blue)
+      }
     }
   }
 }

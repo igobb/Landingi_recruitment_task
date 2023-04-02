@@ -14,6 +14,7 @@
   --shadow-color: #c5c5c5;
   --dark-shadow-color: #a9a9a9;
   --blue: rgb(53, 162, 235);
+  --dark-blue: rgb(20, 88, 133);
   --red: rgb(255, 99, 132);
 }
 
@@ -29,4 +30,8 @@ body {
   min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+button {
+  color: var(--dark-blue)
 }

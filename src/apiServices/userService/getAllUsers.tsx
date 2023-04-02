@@ -1,9 +1,9 @@
 import { User } from "./types";
 
 export const getAllUsers = async () => {
-  const response = await fetch('https://dummyjson.com/users?limit=0');
+  const response = await fetch("https://dummyjson.com/users?limit=0");
   if (!response.ok) {
-    return [];
+    throw new Error("Something went wrong");
   }
   const data = await response.json();
   return data.users as User[];

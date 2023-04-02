@@ -1,5 +1,5 @@
 import { AddCartInterface } from "./types";
-
+import { notify } from "../notify";
 
 export const addCart = async (cartData:AddCartInterface) => {
   const response = await fetch('https://dummyjson.com/carts/add', {
@@ -16,6 +16,7 @@ export const addCart = async (cartData:AddCartInterface) => {
     }),
   });
   if (!response.ok) {
+    notify();
     return {};
   }
   const data = await response.json();

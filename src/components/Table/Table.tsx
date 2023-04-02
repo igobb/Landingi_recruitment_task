@@ -19,7 +19,7 @@ const Table = ({ carts }: { carts: Cart[] }) => {
               <th>
                 {cart.id} of User {cart.userId}
               </th>
-              <th>{cart.total}</th>
+              <th style={{color: "var(--dark-blue)"}}>{cart.total}</th>
             </tr>
           );
         })}
