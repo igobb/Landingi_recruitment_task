@@ -18,6 +18,7 @@ ChartJS.register(
     Legend
   );
 import { Chart as ChartJS } from "chart.js/auto";
+import { ChartData } from "../../pages/CartPage/CartPage";
 
 const options = {
     responsive: true,
@@ -33,7 +34,7 @@ const options = {
     },
   };
 
-const LineChart = ({ chartData }) => {
+const LineChart = ({ chartData } : {chartData: ChartData}) => {
   return (
     <div className="chart">
       <Line data={chartData} options={options}/>
