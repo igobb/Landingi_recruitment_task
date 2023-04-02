@@ -1,3 +1,5 @@
+import { RotatingLines } from "react-loader-spinner";
+
 const Loading = () => {
   return (
     <div
@@ -9,7 +11,13 @@ const Loading = () => {
         alignItems: "center",
       }}
     >
-      <h1>Loading...</h1>
+      <RotatingLines
+        strokeColor="grey"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="96"
+        visible={true}
+      />
     </div>
   );
 };
