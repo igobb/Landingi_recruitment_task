@@ -4,7 +4,7 @@ import { Product } from "../../apiServices/productService/types";
 import { useEffect, useState } from "react";
 import { getCart } from "../../apiServices/cartService/getCart";
 import LineChart from "../../components/LineChart/LineChart";
-import { backdropClasses } from "@mui/material";
+import TableForProducts from "../../components/TableForProducts/TableForProducts";
 
 const CartPage = () => {
   const { id } = useParams();
@@ -49,28 +49,7 @@ const CartPage = () => {
         <div className="cart-page__container">
           <LineChart chartData={chartData} />
           <div className="table__container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Products</th>
-                  <th>Price before discount</th>
-                  <th>Price after discount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product: Product) => {
-                  return (
-                    <tr key={product.id}>
-                      <th>
-                       {product.title}
-                      </th>
-                      <th style={{color: 'var(--red)'}}>{product.price}</th>
-                      <th style={{color: 'var(--green)'}}>{String(product.discountedPrice / product.quantity).slice(0,5)}</th>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <TableForProducts products={products}/>
           </div>
         </div>
       )}
