@@ -17,6 +17,10 @@
     width: 50%;
     max-width: 300px;
 
+    @media screen and (max-width: 1439px) {
+      width: 100%;
+    }
+
     & > * {
       margin: 1rem;
     }

@@ -9,6 +9,10 @@
 
   .page__title {
     margin: 1rem 0;
+
+    @media screen and (max-width: 1439px) {
+      font-size: 1.4rem;
+    }
   }
 
   .table__container {
@@ -31,17 +35,24 @@
 
       thead {
         font-size: 2rem;
-        
+
+        @media screen and (max-width: 1439px) {
+          font-size: 1.5rem;
+        }
+
         th {
-            padding: 1rem 0;
+          padding: 1rem 0;
         }
       }
 
       tbody {
         font-size: 1.3rem;
 
-        tr {
+        @media screen and (max-width: 1439px) {
+          font-size: 1.1rem;
+        }
 
+        tr {
           &:nth-child(odd) {
             background-color: var(--shadow-color);
           }
@@ -56,6 +67,14 @@
           }
         }
       }
+    }
+
+    @media screen and (max-width: 1439px) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
     }
   }
 }

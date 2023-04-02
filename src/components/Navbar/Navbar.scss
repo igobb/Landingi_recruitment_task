@@ -11,9 +11,56 @@
       margin: 0 1rem;
       list-style-type: none;
 
-      &:hover {
-        color: var(--blue)
+      @media screen and (max-width: 767px) {
+        display: none;
       }
+
+      &:hover {
+        color: var(--blue);
+      }
+    }
+  }
+
+  .nav__links-mobile {
+    position: absolute;
+    right: 5%;
+    top: 7%;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    z-index: 200;
+    transition: all 0.5s ease;
+    padding: 1.5rem 0;
+
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+
+      &:hover {
+        background-color: var(--shadow-color);
+      }
+    }
+
+    .nav__link {
+      margin: 0 1rem;
+      list-style-type: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .hamburger-button {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    width: 30px;
+    height: 30px;
+
+    @media screen and (max-width: 767px) {
+      display: flex;
     }
   }
 }

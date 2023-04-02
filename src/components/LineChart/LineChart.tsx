@@ -22,6 +22,7 @@ import { ChartData } from "./chartData"
 
 const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top' as const,
