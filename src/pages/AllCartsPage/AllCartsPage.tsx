@@ -6,19 +6,14 @@ import "./AllCartsPage.scss";
 
 const AllCartsPage = () => {
   const [carts, setCarts] = useState<Cart[] | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getAllCarts().then((data) => setCarts(data));
-    setIsLoading(false);
   }, []);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>; //loading component will be here
-  }
   return (
     <>
-      {carts ? (
+      {carts && (
         <div className="all-carts-page__container">
           <h1 className="page__title">
             Here you can see a list of all carts available on site - click on a
@@ -28,8 +23,6 @@ const AllCartsPage = () => {
             <Table carts={carts} />
           </div>
         </div>
-      ) : (
-        <h2>Error - we dont have any carts!</h2>
       )}
     </>
   );

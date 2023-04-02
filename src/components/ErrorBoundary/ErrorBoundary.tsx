@@ -10,7 +10,7 @@ interface State {
 
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
-    hasError: false
+    hasError: false,
   };
 
   public static getDerivedStateFromError(_: Error): State {
@@ -23,7 +23,19 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <div style={{display: 'flex', width: "100vw", height: "100vh", justifyContent: "center", alignItems: "center"}}><h1>Sorry.. there was an error</h1></div>;
+      return (
+        <div
+          style={{
+            display: "flex",
+            width: "100vw",
+            height: "calc(100vh - 100px)",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1>Sorry.. there was an error</h1>
+        </div>
+      );
     }
 
     return this.props.children;

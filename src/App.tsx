@@ -3,14 +3,14 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Routes from "./routes/Routes";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   return (
     <ErrorBoundary>
       <div className="App">
         <Header />
-        <Suspense fallback={<div>Loading...</div>}>
-          {/* dodać komponent ładowania */}
+        <Suspense fallback={<Loading />}>
           <Routes />
         </Suspense>
       </div>
