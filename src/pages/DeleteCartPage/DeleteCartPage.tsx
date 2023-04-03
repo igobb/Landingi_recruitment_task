@@ -7,12 +7,15 @@ import { useFormik } from "formik";
 import { deleteCart } from "../../apiServices/cartService/deleteCart";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 const DeleteCartPage = () => {
   const [carts, setCarts] = useState<Cart[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getAllCarts().then((data) => setCarts(data));
+    setIsLoading(false)
   }, []);
 
   const navigate = useNavigate();
@@ -32,6 +35,10 @@ const DeleteCartPage = () => {
       });
     },
   });
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>

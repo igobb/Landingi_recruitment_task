@@ -6,12 +6,14 @@ import { getProductsFromCart } from "../../apiServices/cartService/getProductsFr
 import LineChart from "../../components/LineChart/LineChart";
 import TableForProducts from "../../components/TableForProducts/TableForProducts";
 import { ChartData } from "../../components/LineChart/chartData";
+import Loading from "../../components/Loading/Loading";
 
 const CartPage = () => {
   const { id } = useParams();
 
   const [products, setProducts] = useState<Product[] | null>(null);
   const [chartData, setChartData] = useState<ChartData | null>(null);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getProductsFromCart(Number(id)).then((data) => setProducts(data));
@@ -43,7 +45,12 @@ const CartPage = () => {
         ],
       });
     }
+    setIsLoading(false)
   }, [products]);
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>

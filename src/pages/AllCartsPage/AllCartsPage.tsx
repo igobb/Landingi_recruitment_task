@@ -3,13 +3,20 @@ import { getAllCarts } from "../../apiServices/cartService/getAllCarts";
 import { Cart } from "../../apiServices/cartService/types";
 import Table from "../../components/Table/Table";
 import "./AllCartsPage.scss";
+import Loading from "../../components/Loading/Loading";
 
 const AllCartsPage = () => {
   const [carts, setCarts] = useState<Cart[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getAllCarts().then((data) => setCarts(data));
+    setIsLoading(false)
   }, []);
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>
