@@ -28,6 +28,7 @@ const SelectProductInput = ({
         onChange={formik.handleChange}
         error={Boolean(formik.touched.productId && formik.errors.productId)}
         onBlur={formik.handleBlur}
+        data-testid="select_product_test"
       >
         {products.map((product: Product) => {
           return (

@@ -12,6 +12,7 @@ import Loading from "../../components/Loading/Loading";
 const DeleteCartPage = () => {
   const [carts, setCarts] = useState<Cart[] | null>(null);
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingButton, setIsLoadingButton] = useState(false)
 
   useEffect(() => {
     getAllCarts().then((data) => setCarts(data));
@@ -21,6 +22,7 @@ const DeleteCartPage = () => {
   const navigate = useNavigate();
 
   const notify = (data:DeletedCart) => {
+    setIsLoadingButton(false);
     navigate("/")
     toast.success(`Cart was deleted on ${data.deletedOn.slice(0,10)}. \n All ok!`);
   };
@@ -30,9 +32,10 @@ const DeleteCartPage = () => {
       cartId: 1,
     },
     onSubmit: (values: DeleteCart) => {
+      setIsLoadingButton(true)
       deleteCart(values.cartId).then((data) => {
         notify(data)
-      });
+      })
     },
   });
 
@@ -47,7 +50,7 @@ const DeleteCartPage = () => {
           <h1 className="page__title">Choos a Cart to delete:</h1>
           <form onSubmit={formik.handleSubmit} className="delete-cart-page__form">
             <SelectCartInput carts={carts} formik={formik} />
-            <button type="submit">Delete cart</button>
+            <button data-testid="button_disabled_test" type="submit" disabled={isLoadingButton}>{isLoadingButton ? "Please wait" : "Delete cart" }</button>
           </form>
         </div>
       )}
