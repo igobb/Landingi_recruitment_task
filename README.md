@@ -16,6 +16,7 @@ This is my solution for Landingi recruitment task. This project is dashboard wit
 * TypeScript
 * React
 * React Router Dom
+* React Testing Library
 * Formik
 * Yup
 * MUI
